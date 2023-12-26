@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Add your styles here */
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <input type="text" class="display" id="result" readonly>
+        <div class="buttons">
+            <button class="operator" onclick="display('+')">+</button>
+            <button class="operator" onclick="display('-')">-</button>
+            <button class="operator" onclick="display('*')">*</button>
+            <button class="operator" onclick="display('/')">/</button>
+            <button class="number" onclick="display('7')">7</button>
+            <button class="number" onclick="display('8')">8</button>
+            <button class="number" onclick="display('9')">9</button>
+            <button class="operator clear" onclick="clearScreen()">C</button>
+            <button class="number" onclick="display('4')">4</button>
+            <button class="number" onclick="display('5')">5</button>
+            <button class="number" onclick="display('6')">6</button>
+            <button class="number" onclick="display('1')">1</button>
+            <button class="number" onclick="display('2')">2</button>
+            <button class="number" onclick="display('3')">3</button>
+            <button class="number" onclick="display('0')">0</button>
+            <button class="decimal" onclick="display('.')">.</button>
+            <button class="equals" onclick="solve()">=</button>
+        </div>
+    </div>
+
+    <script>
+        function display(val) {
+            document.getElementById('result').value += val;
+            return val;
+        }
+
+        function solve() {
+            let x = document.getElementById('result').value;
+            let y = eval(x);
+            document.getElementById('result').value = y;
+            return y;
+        }
+
+        function clearScreen() {
+            document.getElementById('result').value = '';
+        }
+    </script>
+        <style>
+            body {
+                font-family: Verdana, sans-serif;
+                background-color: #282c34;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 100vh;
+                margin: 0;
+            }
+    
+            .calculator {
+                width: 300px;
+                margin: 0 auto;
+                background-color: #555;
+                border-radius: 10px;
+                overflow: hidden;
+            }
+    
+            .display {
+                width: 100%;
+                height: 50px;
+                background-color: #333;
+                color: #fff;
+                font-size: 24px;
+                text-align: right;
+                padding-right: 10px;
+                border: none;
+                outline: none;
+            }
+    
+            .buttons {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 5px;
+                padding: 10px;
+            }
+    
+            .button {
+                width: 100%;
+                height: 50px;
+                background-color: #444;
+                color: #fff;
+                font-size: 20px;
+                cursor: pointer;
+                border: none;
+                outline: none;
+            }
+    
+            .operator {
+                background-color: #ff5722;
+            }
+    
+            .decimal {
+                background-color: #444;
+            }
+    
+            .clear {
+                background-color: #ff5722;
+            }
+    
+            .equals {
+                background-color: #009688;
+                grid-column: span 2;
+            }
+        </style>
+</body>
+</html>
